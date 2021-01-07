@@ -5,7 +5,7 @@ from realtors.models import Realtor
 
 
 class Listing(models.Model):
-    relator = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
+    realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
@@ -16,7 +16,7 @@ class Listing(models.Model):
     bedrooms = models.IntegerField()
     bathrooms = models.DecimalField(max_digits=2, decimal_places=1)
     garage = models.IntegerField(default=0)
-    sqfr = models.IntegerField()
+    sqft = models.IntegerField()
     lot_size = models.DecimalField(max_digits=5, decimal_places=1)
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/')
     photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)

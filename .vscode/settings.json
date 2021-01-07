@@ -1,0 +1,9 @@
+{
+    "emmet.includeLanguages": {
+        "django-html": "html",
+        "django": "html"
+    },
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ]
+}
