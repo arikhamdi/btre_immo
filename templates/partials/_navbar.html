@@ -20,19 +20,31 @@
                     <a class="nav-link" href="{% url 'listings:listings' %}">Featured Listings</a>
                 </li>
             </ul>
-
+            {% if user.is_authenticated %}
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item mr-3">
-                    <a class="nav-link" href="register.html">
+                    <li class="nav-item {% if 'dashboard' in request.path %} active {% endif %} mr-3">
+                        <a class="nav-link" href="{% url 'accounts:dashboard' %}"> Welcome {{user.username}} (Dashboard)</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="{% url 'accounts:logout' %}">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout</a>
+                    </li>
+                </ul>
+            {%else %}
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item {% if 'register' in request.path %} active {% endif %} mr-3">
+                    <a class="nav-link" href="{% url 'accounts:register' %}">
                         <i class="fas fa-user-plus"></i> Register</a>
                 </li>
-                <li class="nav-item mr-3">
-                    <a class="nav-link" href="login.html">
+                <li class="nav-item {% if 'login' in request.path %} active {% endif %} mr-3">
+                    <a class="nav-link" href="{% url 'accounts:login' %}">
                         <i class="fas fa-sign-in-alt"></i>
 
                         Login</a>
                 </li>
             </ul>
+            {%endif %}
         </div>
     </div>
 </nav>
