@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.urls import reverse
 
 from realtors.models import Realtor
 
@@ -30,3 +31,8 @@ class Listing(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('listings:listing', kwargs={
+            'listing_id': self.id
+        })

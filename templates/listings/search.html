@@ -4,6 +4,7 @@
 
 
 {% block title%}
+| Search For Property
 {%endblock%}
 
 {% block body%}
@@ -133,7 +134,7 @@
                             </div>
                         </div>
                         <hr>
-                        <a href="{% url 'listings:listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                        <a href="{{listing.get_absolute_url}}" class="btn btn-primary btn-block">More Info</a>
                     </div>
                 </div>
             </div>
